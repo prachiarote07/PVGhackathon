@@ -1,0 +1,16 @@
+/* White is the default; the existing dark-theme preference stays available. */
+:root[data-theme=light] { --bg:#ffffff; --panel:#ffffff; --panel-soft:#f4f7f6; --sidebar:#f8faf9; --line:#e2e9e6; --text:#182d30; --muted:#596e73; }
+.account-strip { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; border-bottom:1px solid var(--line); padding:10px 38px; background:var(--panel-soft); font-size:12px; }
+.account-strip .actions { gap:18px; }
+.account-strip strong { font-weight:600; }
+.account-error { background:#fff4f1; color:#8e3222; padding:16px 38px; font-size:13px; }
+.category-select { min-width:135px!important; width:150px!important; font-size:11px!important; }
+.auth-shell { --bg:#fff; --panel:#fff; --text:#182d30; --muted:#596e73; --line:#dce5e2; color:var(--text); background:#f5f8f7; min-height:100dvh; display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:8vw; padding:8vh 10vw; color-scheme:light; }
+.auth-brand h1 { font-size:52px; margin:20px 0; }
+.auth-brand p { margin-bottom:20px; max-width:340px; }
+.auth-panel { padding:36px; max-width:480px; width:100%; }
+.auth-panel form { margin:24px 0; }
+.auth-panel form>p { margin-bottom:20px; font-size:12px; }
+.auth-panel .text-button { margin-top:12px; }
+.account-processing { position:fixed; bottom:25px; left:50%; transform:translateX(-50%); background:var(--panel); border:1px solid var(--line); padding:16px; border-radius:10px; z-index:90; }
+@media(max-width:760px) { .account-strip{padding:12px 18px;font-size:11px}.account-error{padding:15px}.auth-shell{grid-template-columns:1fr;padding:35px 20px;gap:20px}.auth-brand h1{font-size:36px}.auth-brand p:last-child{display:none}.auth-panel{padding:24px;max-width:none}.account-processing{bottom:100px;width:90%;text-align:center}.category-select{font-size:13px!important} }

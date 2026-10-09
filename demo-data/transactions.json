@@ -1,0 +1,299 @@
+[
+  {
+    "id": "10-food-9",
+    "date": "2026-10-09",
+    "merchant": "Swiggy",
+    "amount": 60000,
+    "direction": "debit",
+    "category": "Food",
+    "bank": "Demo account"
+  },
+  {
+    "id": "fee",
+    "date": "2026-10-07",
+    "merchant": "Account service fee",
+    "amount": 19900,
+    "direction": "debit",
+    "category": "Fees",
+    "bank": "Demo account"
+  },
+  {
+    "id": "10-food-6",
+    "date": "2026-10-06",
+    "merchant": "FreshMart",
+    "amount": 60000,
+    "direction": "debit",
+    "category": "Food",
+    "bank": "Demo account"
+  },
+  {
+    "id": "10-metro",
+    "date": "2026-10-05",
+    "merchant": "Metro · UPI",
+    "amount": 180000,
+    "direction": "debit",
+    "category": "Transport",
+    "bank": "Demo account"
+  },
+  {
+    "id": "10-food-3",
+    "date": "2026-10-03",
+    "merchant": "Swiggy",
+    "amount": 60000,
+    "direction": "debit",
+    "category": "Food",
+    "bank": "Demo account"
+  },
+  {
+    "id": "10-rent",
+    "date": "2026-10-02",
+    "merchant": "UPI · Rent",
+    "amount": 900000,
+    "direction": "debit",
+    "category": "Housing",
+    "bank": "Demo account"
+  },
+  {
+    "id": "10-salary",
+    "date": "2026-10-01",
+    "merchant": "Acme Studio · Salary",
+    "amount": 3000000,
+    "direction": "credit",
+    "category": "Income",
+    "bank": "Demo account"
+  },
+  {
+    "id": "09-food-27",
+    "date": "2026-09-27",
+    "merchant": "Swiggy",
+    "amount": 60000,
+    "direction": "debit",
+    "category": "Food",
+    "bank": "Demo account"
+  },
+  {
+    "id": "09-food-24",
+    "date": "2026-09-24",
+    "merchant": "FreshMart",
+    "amount": 60000,
+    "direction": "debit",
+    "category": "Food",
+    "bank": "Demo account"
+  },
+  {
+    "id": "09-netflix",
+    "date": "2026-09-23",
+    "merchant": "Netflix",
+    "amount": 64900,
+    "direction": "debit",
+    "category": "Subscriptions",
+    "bank": "Demo account"
+  },
+  {
+    "id": "09-food-21",
+    "date": "2026-09-21",
+    "merchant": "Swiggy",
+    "amount": 60000,
+    "direction": "debit",
+    "category": "Food",
+    "bank": "Demo account"
+  },
+  {
+    "id": "09-food-18",
+    "date": "2026-09-18",
+    "merchant": "FreshMart",
+    "amount": 60000,
+    "direction": "debit",
+    "category": "Food",
+    "bank": "Demo account"
+  },
+  {
+    "id": "09-food-15",
+    "date": "2026-09-15",
+    "merchant": "Swiggy",
+    "amount": 60000,
+    "direction": "debit",
+    "category": "Food",
+    "bank": "Demo account"
+  },
+  {
+    "id": "09-food-12",
+    "date": "2026-09-12",
+    "merchant": "FreshMart",
+    "amount": 60000,
+    "direction": "debit",
+    "category": "Food",
+    "bank": "Demo account"
+  },
+  {
+    "id": "09-food-9",
+    "date": "2026-09-09",
+    "merchant": "Swiggy",
+    "amount": 60000,
+    "direction": "debit",
+    "category": "Food",
+    "bank": "Demo account"
+  },
+  {
+    "id": "09-food-6",
+    "date": "2026-09-06",
+    "merchant": "FreshMart",
+    "amount": 60000,
+    "direction": "debit",
+    "category": "Food",
+    "bank": "Demo account"
+  },
+  {
+    "id": "09-metro",
+    "date": "2026-09-05",
+    "merchant": "Metro · UPI",
+    "amount": 180000,
+    "direction": "debit",
+    "category": "Transport",
+    "bank": "Demo account"
+  },
+  {
+    "id": "09-food-3",
+    "date": "2026-09-03",
+    "merchant": "Swiggy",
+    "amount": 60000,
+    "direction": "debit",
+    "category": "Food",
+    "bank": "Demo account"
+  },
+  {
+    "id": "09-rent",
+    "date": "2026-09-02",
+    "merchant": "UPI · Rent",
+    "amount": 900000,
+    "direction": "debit",
+    "category": "Housing",
+    "bank": "Demo account"
+  },
+  {
+    "id": "09-salary",
+    "date": "2026-09-01",
+    "merchant": "Acme Studio · Salary",
+    "amount": 3000000,
+    "direction": "credit",
+    "category": "Income",
+    "bank": "Demo account"
+  },
+  {
+    "id": "08-food-27",
+    "date": "2026-08-27",
+    "merchant": "Swiggy",
+    "amount": 60000,
+    "direction": "debit",
+    "category": "Food",
+    "bank": "Demo account"
+  },
+  {
+    "id": "08-food-24",
+    "date": "2026-08-24",
+    "merchant": "FreshMart",
+    "amount": 60000,
+    "direction": "debit",
+    "category": "Food",
+    "bank": "Demo account"
+  },
+  {
+    "id": "08-netflix",
+    "date": "2026-08-23",
+    "merchant": "Netflix",
+    "amount": 64900,
+    "direction": "debit",
+    "category": "Subscriptions",
+    "bank": "Demo account"
+  },
+  {
+    "id": "08-food-21",
+    "date": "2026-08-21",
+    "merchant": "Swiggy",
+    "amount": 60000,
+    "direction": "debit",
+    "category": "Food",
+    "bank": "Demo account"
+  },
+  {
+    "id": "08-food-18",
+    "date": "2026-08-18",
+    "merchant": "FreshMart",
+    "amount": 60000,
+    "direction": "debit",
+    "category": "Food",
+    "bank": "Demo account"
+  },
+  {
+    "id": "08-food-15",
+    "date": "2026-08-15",
+    "merchant": "Swiggy",
+    "amount": 60000,
+    "direction": "debit",
+    "category": "Food",
+    "bank": "Demo account"
+  },
+  {
+    "id": "08-food-12",
+    "date": "2026-08-12",
+    "merchant": "FreshMart",
+    "amount": 60000,
+    "direction": "debit",
+    "category": "Food",
+    "bank": "Demo account"
+  },
+  {
+    "id": "08-food-9",
+    "date": "2026-08-09",
+    "merchant": "Swiggy",
+    "amount": 60000,
+    "direction": "debit",
+    "category": "Food",
+    "bank": "Demo account"
+  },
+  {
+    "id": "08-food-6",
+    "date": "2026-08-06",
+    "merchant": "FreshMart",
+    "amount": 60000,
+    "direction": "debit",
+    "category": "Food",
+    "bank": "Demo account"
+  },
+  {
+    "id": "08-metro",
+    "date": "2026-08-05",
+    "merchant": "Metro · UPI",
+    "amount": 180000,
+    "direction": "debit",
+    "category": "Transport",
+    "bank": "Demo account"
+  },
+  {
+    "id": "08-food-3",
+    "date": "2026-08-03",
+    "merchant": "Swiggy",
+    "amount": 60000,
+    "direction": "debit",
+    "category": "Food",
+    "bank": "Demo account"
+  },
+  {
+    "id": "08-rent",
+    "date": "2026-08-02",
+    "merchant": "UPI · Rent",
+    "amount": 900000,
+    "direction": "debit",
+    "category": "Housing",
+    "bank": "Demo account"
+  },
+  {
+    "id": "08-salary",
+    "date": "2026-08-01",
+    "merchant": "Acme Studio · Salary",
+    "amount": 3000000,
+    "direction": "credit",
+    "category": "Income",
+    "bank": "Demo account"
+  }
+]

@@ -1,0 +1,1250 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "MoneyFy planned API contract",
+    "version": "0.1.0",
+    "description": "Checkpoint 1 design contract, not an implemented service. All monetary fields are integer INR paise. Dates use ISO 8601. Frontend slider rupee values must be converted at the future adapter boundary. No real banking or payment execution."
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:8000/api/v1"
+    }
+  ],
+  "paths": {
+    "/health": {
+      "get": {
+        "summary": "Read backend status",
+        "description": "PLANNED: not served by the checkpoint 1 frontend. Single synthetic demo-user scope only.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Status"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid input",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/transactions": {
+      "get": {
+        "summary": "List normalized demo transactions",
+        "description": "PLANNED: not served by the checkpoint 1 frontend. Single synthetic demo-user scope only.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Transaction"
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid input",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/imports/csv": {
+      "post": {
+        "summary": "Validate and import statement CSV",
+        "description": "PLANNED: not served by the checkpoint 1 frontend. Single synthetic demo-user scope only.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ImportResult"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid input",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                },
+                "required": [
+                  "file"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      }
+    },
+    "/banks/river/raw": {
+      "get": {
+        "summary": "Read fictional bank raw JSON",
+        "description": "PLANNED: not served by the checkpoint 1 frontend. Single synthetic demo-user scope only.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "description": "Bank-specific raw schema; see demo-data/banks.json"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid input",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/banks/lotus/raw": {
+      "get": {
+        "summary": "Read fictional bank raw JSON",
+        "description": "PLANNED: not served by the checkpoint 1 frontend. Single synthetic demo-user scope only.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "description": "Bank-specific raw schema; see demo-data/banks.json"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid input",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/banks/summit/raw": {
+      "get": {
+        "summary": "Read fictional bank raw JSON",
+        "description": "PLANNED: not served by the checkpoint 1 frontend. Single synthetic demo-user scope only.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "description": "Bank-specific raw schema; see demo-data/banks.json"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid input",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/banks/{bank_id}/connect": {
+      "post": {
+        "summary": "Consent-gated fictional bank ingestion",
+        "description": "PLANNED: not served by the checkpoint 1 frontend. Single synthetic demo-user scope only.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ImportResult"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid input",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "bank_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Confirmation"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/overview": {
+      "get": {
+        "summary": "Calculate forecast, paycheck planner and health score",
+        "description": "PLANNED: not served by the checkpoint 1 frontend. Single synthetic demo-user scope only.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Metrics"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid input",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/simulations": {
+      "post": {
+        "summary": "Calculate a non-mutating what-if projection",
+        "description": "PLANNED: not served by the checkpoint 1 frontend. Single synthetic demo-user scope only.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Metrics"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid input",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Scenario"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/goals": {
+      "get": {
+        "summary": "List goals",
+        "description": "PLANNED: not served by the checkpoint 1 frontend. Single synthetic demo-user scope only.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Goal"
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid input",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a savings goal",
+        "description": "PLANNED: not served by the checkpoint 1 frontend. Single synthetic demo-user scope only.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Goal"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid input",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Goal"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/goals/{goal_id}": {
+      "put": {
+        "summary": "Update a savings goal",
+        "description": "PLANNED: not served by the checkpoint 1 frontend. Single synthetic demo-user scope only.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Goal"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid input",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "goal_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Goal"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a savings goal",
+        "description": "PLANNED: not served by the checkpoint 1 frontend. Single synthetic demo-user scope only.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Status"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid input",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "goal_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/recommendations": {
+      "get": {
+        "summary": "Calculate explainable recommendations",
+        "description": "PLANNED: not served by the checkpoint 1 frontend. Single synthetic demo-user scope only.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Recommendation"
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid input",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/recommendations/{recommendation_id}/decision": {
+      "put": {
+        "summary": "Confirm, reject or undo proposed budget action",
+        "description": "PLANNED: not served by the checkpoint 1 frontend. Single synthetic demo-user scope only.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Recommendation"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid input",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "recommendation_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Decision"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/alerts": {
+      "get": {
+        "summary": "Read current financial alerts",
+        "description": "PLANNED: not served by the checkpoint 1 frontend. Single synthetic demo-user scope only.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Alert"
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid input",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/alerts/{alert_id}": {
+      "patch": {
+        "summary": "Change read and dismissed states",
+        "description": "PLANNED: not served by the checkpoint 1 frontend. Single synthetic demo-user scope only.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Alert"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid input",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "alert_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AlertUpdate"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/preferences": {
+      "get": {
+        "summary": "Read consent and financial inputs",
+        "description": "PLANNED: not served by the checkpoint 1 frontend. Single synthetic demo-user scope only.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Preferences"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid input",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Update consent and financial inputs",
+        "description": "PLANNED: not served by the checkpoint 1 frontend. Single synthetic demo-user scope only.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Preferences"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid input",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Preferences"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/privacy/delete": {
+      "post": {
+        "summary": "Delete stored demo financial data",
+        "description": "PLANNED: not served by the checkpoint 1 frontend. Single synthetic demo-user scope only.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Status"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid input",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Confirmation"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/privacy/reset": {
+      "post": {
+        "summary": "Restore synthetic demo data",
+        "description": "PLANNED: not served by the checkpoint 1 frontend. Single synthetic demo-user scope only.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Status"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid input",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Confirmation"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Transaction": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "merchant": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Integer paise; INR only",
+            "minimum": 1
+          },
+          "direction": {
+            "type": "string",
+            "enum": [
+              "credit",
+              "debit"
+            ]
+          },
+          "category": {
+            "type": "string"
+          },
+          "bank": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "date",
+          "merchant",
+          "amount",
+          "direction",
+          "category",
+          "bank"
+        ],
+        "additionalProperties": false
+      },
+      "Goal": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "target": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Integer paise; INR only",
+            "minimum": 0
+          },
+          "saved": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Integer paise; INR only",
+            "minimum": 0
+          },
+          "deadline": {
+            "type": "string",
+            "format": "date"
+          },
+          "priority": {
+            "type": "string",
+            "enum": [
+              "High",
+              "Normal"
+            ]
+          }
+        },
+        "required": [
+          "name",
+          "target",
+          "saved",
+          "deadline",
+          "priority"
+        ],
+        "additionalProperties": false
+      },
+      "Scenario": {
+        "type": "object",
+        "properties": {
+          "food_reduction_percent": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "shopping": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Integer paise; INR only",
+            "minimum": 0
+          },
+          "purchase": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Integer paise; INR only",
+            "minimum": 0
+          },
+          "salary_delay_days": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 60
+          },
+          "emergency": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Integer paise; INR only",
+            "minimum": 0
+          },
+          "additional_savings": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Integer paise; INR only",
+            "minimum": 0
+          },
+          "goal_target_increase": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Integer paise; INR only",
+            "minimum": 0
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      },
+      "ForecastPoint": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "baseline_balance": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Integer paise; INR only"
+          },
+          "proposed_balance": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Integer paise; INR only"
+          },
+          "scenario_balance": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Integer paise; INR only"
+          }
+        },
+        "required": [
+          "date",
+          "baseline_balance",
+          "proposed_balance",
+          "scenario_balance"
+        ],
+        "additionalProperties": false
+      },
+      "Metrics": {
+        "type": "object",
+        "properties": {
+          "as_of": {
+            "type": "string",
+            "format": "date"
+          },
+          "balance": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Integer paise; INR only"
+          },
+          "lowest_balance": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Integer paise; INR only"
+          },
+          "closing_balance": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Integer paise; INR only"
+          },
+          "safe_to_spend": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Integer paise; INR only",
+            "minimum": 0
+          },
+          "daily_budget": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Integer paise; INR only",
+            "minimum": 0
+          },
+          "savings_capacity": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Integer paise; INR only",
+            "minimum": 0
+          },
+          "score": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "forecast": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ForecastPoint"
+            }
+          },
+          "assumptions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "as_of",
+          "balance",
+          "forecast",
+          "assumptions"
+        ],
+        "additionalProperties": false
+      },
+      "Recommendation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "priority": {
+            "type": "string"
+          },
+          "issue": {
+            "type": "string"
+          },
+          "evidence": {
+            "type": "string"
+          },
+          "calculation": {
+            "type": "string"
+          },
+          "monthly_impact": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Integer paise; INR only",
+            "minimum": 0
+          },
+          "action": {
+            "type": "string"
+          },
+          "uncertainty": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "accepted",
+              "rejected"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "priority",
+          "issue",
+          "evidence",
+          "calculation",
+          "monthly_impact",
+          "action",
+          "uncertainty",
+          "status"
+        ],
+        "additionalProperties": false
+      },
+      "Decision": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "accepted",
+              "rejected",
+              "pending"
+            ]
+          },
+          "monthly_impact": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Integer paise; INR only",
+            "minimum": 0
+          },
+          "confirmed": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "status",
+          "confirmed"
+        ],
+        "additionalProperties": false
+      },
+      "Alert": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "priority": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string"
+          },
+          "read": {
+            "type": "boolean"
+          },
+          "dismissed": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "priority",
+          "title",
+          "timestamp",
+          "reason",
+          "action",
+          "read",
+          "dismissed"
+        ],
+        "additionalProperties": false
+      },
+      "AlertUpdate": {
+        "type": "object",
+        "properties": {
+          "read": {
+            "type": "boolean"
+          },
+          "dismissed": {
+            "type": "boolean"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      },
+      "Preferences": {
+        "type": "object",
+        "properties": {
+          "import_consent": {
+            "type": "boolean"
+          },
+          "theme": {
+            "type": "string",
+            "enum": [
+              "light",
+              "dark"
+            ]
+          },
+          "opening_balance": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Integer paise; INR only",
+            "minimum": 0
+          },
+          "reserve": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Integer paise; INR only",
+            "minimum": 0
+          },
+          "salary": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Integer paise; INR only",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "import_consent",
+          "theme"
+        ],
+        "additionalProperties": false
+      },
+      "ImportResult": {
+        "type": "object",
+        "properties": {
+          "added": {
+            "type": "integer"
+          },
+          "possible_duplicates": {
+            "type": "integer"
+          },
+          "transactions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Transaction"
+            }
+          },
+          "import_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "added",
+          "possible_duplicates",
+          "transactions",
+          "import_id"
+        ],
+        "additionalProperties": false
+      },
+      "Confirmation": {
+        "type": "object",
+        "properties": {
+          "confirmed": {
+            "type": "boolean",
+            "enum": [
+              true
+            ]
+          }
+        },
+        "required": [
+          "confirmed"
+        ],
+        "additionalProperties": false
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "message"
+        ],
+        "additionalProperties": false
+      },
+      "Status": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "status"
+        ],
+        "additionalProperties": false
+      }
+    }
+  }
+}

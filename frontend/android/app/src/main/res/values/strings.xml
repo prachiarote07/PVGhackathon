@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">MoneyFy</string>
+    <string name="app_tagline">Your Moves, Made Smarter.</string>
+    <string name="title_activity_main">MoneyFy</string>
+    <string name="package_name">com.moneyfy.app</string>
+    <string name="custom_url_scheme">com.moneyfy.app</string>
+</resources>

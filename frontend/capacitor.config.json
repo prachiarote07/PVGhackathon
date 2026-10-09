@@ -1,0 +1,20 @@
+{
+  "appId": "com.moneyfy.app",
+  "appName": "MoneyFy",
+  "webDir": "dist-android",
+  "backgroundColor": "#0b131b",
+  "loggingBehavior": "debug",
+  "server": {
+    "hostname": "localhost",
+    "androidScheme": "https",
+    "cleartext": false
+  },
+  "android": {
+    "allowMixedContent": false,
+    "backgroundColor": "#0b131b"
+  },
+  "plugins": {
+    "SystemBars": { "insetsHandling": "css", "style": "DARK", "hidden": false },
+    "CapacitorHttp": { "enabled": false }
+  }
+}

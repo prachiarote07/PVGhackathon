@@ -1,0 +1,26 @@
+{
+  "River Bank": [
+    {
+      "date": "2026-10-08",
+      "merchant": "Zomato UPI",
+      "amount": 420,
+      "direction": "debit"
+    }
+  ],
+  "Lotus Bank": [
+    {
+      "transactionDate": "2026-10-06",
+      "description": "Spotify",
+      "value": 119,
+      "type": "DR"
+    }
+  ],
+  "Summit Bank": [
+    {
+      "booked_on": "2026-10-04",
+      "payee": "Uber UPI",
+      "amount_paise": 28000,
+      "flow": "out"
+    }
+  ]
+}
